@@ -24,6 +24,14 @@ public class Chips extends Snack {
 		this.weight = ounces;
 	}
 	
+	//Cretes a copy of another Chips
+	public Chips (Chips c) {
+		this.name = c.name;
+		this.price = c.price;
+		this.weight = c.weight;
+		this.dateCreated = c.getDateCreated();
+	}
+	
 	//override method for the equals method
 	@Override
 	public boolean equals (Object o) {

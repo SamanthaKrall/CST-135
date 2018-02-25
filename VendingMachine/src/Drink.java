@@ -22,6 +22,14 @@ public class Drink extends Product {
 		this.weight = ouncesNew;
 	}
 	
+	//Cretes a copy of another Drink
+	public Drink (Drink d) {
+		this.name = d.name;
+		this.price = d.price;
+		this.weight = d.weight;
+		this.dateCreated = d.getDateCreated();
+	}
+	
 	//override method for the equals method
 	@Override
 	public boolean equals (Object o) {

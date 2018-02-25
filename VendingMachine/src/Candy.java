@@ -20,6 +20,14 @@ public class Candy extends Snack {
 	public Candy(String name, double price, int weight) {
 		super(name, price, weight);
 	}
+		
+	//Cretes a copy of another Candy
+	public Candy (Candy c) {
+		this.name = c.name;
+		this.price = c.price;
+		this.weight = c.weight;
+		this.dateCreated = c.getDateCreated();
+	}
 	
 	//override method for the equals method
 	@Override

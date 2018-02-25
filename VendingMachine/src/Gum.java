@@ -20,6 +20,14 @@ public class Gum extends Snack {
 		this.price = price;
 		this.weight = weight;
 	}
+	
+	//Cretes a copy of another Gum
+	public Gum (Gum g) {
+		this.name = g.name;
+		this.price = g.price;
+		this.weight = g.weight;
+		this.dateCreated = g.getDateCreated();
+	}
 
 	public String getFlavor () {
 		return this.flavor;

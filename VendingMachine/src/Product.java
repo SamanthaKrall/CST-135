@@ -19,7 +19,7 @@ public abstract class Product {
 	protected double price; // product price
 	protected int weight; //weight of the product
 	protected DecimalFormat currency = new DecimalFormat("0.00"); // Format Currency
-	private Date dateCreated; // date of product creation
+	protected Date dateCreated; // date of product creation
 
 	// Declare empty constructor
 	public Product() {
@@ -32,6 +32,14 @@ public abstract class Product {
 		name = nameIn; // assigns the value of nameIn to the name class instance variable
 		price = priceIn; // assigns the value priceIn to the price class instance variable
 		weight = weightIn; // assign the value to instanced weight variable
+	}
+	
+	//Cretes a copy of another Product
+	public Product (Product p) {
+		this.name = p.name;
+		this.price = p.price;
+		this.weight = p.weight;
+		this.dateCreated = p.getDateCreated();
 	}
 
 	// Set name of product

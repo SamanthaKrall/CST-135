@@ -14,6 +14,14 @@ public abstract class Snack extends Product {
 		super(name, price, weight);
 	}
 	
+	//Cretes a copy of another Snack
+	public Snack (Snack s) {
+		this.name = s.name;
+		this.price = s.price;
+		this.weight = s.weight;
+		this.dateCreated = s.getDateCreated();
+	}
+	
 	//override method for the equals method
 	@Override
 	public boolean equals(Object o) {
