@@ -16,5 +16,20 @@ public class Test {
 		
 		//run the displayProducts method
 		dispenser.displayProducts();
+		
+		//test for comparing two drink products.
+		System.out.println((
+			  (Drink)dispenser.getProduct(0)).compareTo(
+			  (Drink)dispenser.getProduct(1)));
+		
+		//test for comparing two Snack products
+		System.out.println((
+			  (Snack)dispenser.getProduct(2)).compareTo(
+			  (Snack)dispenser.getProduct(3)));
+		
+		//test for two items that are equal in name and price
+		System.out.println((
+			  (Snack)dispenser.getProduct(4)).compareTo(
+			  (Snack)dispenser.getProduct(4)));
 	}
 }

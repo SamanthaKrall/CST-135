@@ -2,11 +2,15 @@
 /** Project: SnackClass
  * Summary: Source code for the Snack abstract subclass
  * Class: CST-135
- * Date: February 24, 2018
- * Author: Phillip Radke
+ * Date: March 4, 2018
+ * Author: Bug Smasher's group
+ * compareTo method added
+ * compareTo() internal code written by Samantha Krall, implemented by Phillip Radke
  */
 
-public abstract class Snack extends Product {
+import java.lang.Comparable;
+
+public abstract class Snack extends Product implements Comparable<Snack> {
 	//no args constructor
 	public Snack() {}
 	
@@ -40,5 +44,22 @@ public abstract class Snack extends Product {
 	@Override
 	public String toString() {
 		return "Name: " + name + "\nPrice: " + super.currency.format(price) + "\nWeight: " + this.weight + " OZ";
+	}
+	
+	// return of 1 means this snack comes before the compared snack
+	// return of 0 means the two are equal
+	// return of -1 means this snack comes after the compared snack
+	public int compareTo(Snack snack) {
+		if (this.name.charAt(0) > snack.name.charAt(0)) {
+			return 1;
+		} else if (this.name.charAt(0) < snack.name.charAt(0)) {
+			return -1;
+		} else if (this.price > snack.price) {
+			return 1;
+		} else if (this.price < snack.price) {
+			return -1;
+		} else {
+			return 0;
+		}
 	}
 }

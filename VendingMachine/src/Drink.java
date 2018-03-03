@@ -1,51 +1,68 @@
+
 /** Project: DrinkClass
  * Summary: Source code for the Drink subclass
  * Class: CST-135
- * Date: February 24, 2018
- * Author: Samantha Krall
- * Alterations made: Moved class out of the Main class and made the class its own class
- *	Changed name conventions and format to match the rest of the project
- *	Removed unnecessary get and set methods for compatibility with superclass
- *	Added the equals override method
- * Altered by: Phillip Radke
+ * Date: March 4, 2018
+ * Author: Bug Smasher's group
+ * compareTo method added
+ * compareTo() internal code written by Samantha Krall, implemented by Phillip Radke
  */
 
-public class Drink extends Product {
+import java.lang.Comparable;
 
-	public Drink () {
+public class Drink extends Product implements Comparable<Drink> {
+
+	public Drink() {
 		super();
 	}
 
-	public Drink (String nameNew, double priceNew, int ouncesNew) {
+	public Drink(String nameNew, double priceNew, int ouncesNew) {
 		this.name = nameNew;
 		this.price = priceNew;
 		this.weight = ouncesNew;
 	}
-	
+
 	//Cretes a copy of another Drink
-	public Drink (Drink d) {
+	public Drink(Drink d) {
 		this.name = d.name;
 		this.price = d.price;
 		this.weight = d.weight;
 		this.dateCreated = d.getDateCreated();
 	}
-	
+
 	//override method for the equals method
 	@Override
-	public boolean equals (Object o) {
+	public boolean equals(Object o) {
 		// Check if the referenced object is of Snack type, then check if the fields are the same.
 		if (o instanceof Product) {
-			return (name.equals(((Product) o).name)) && 
-				(price == ((Product) o).price) &&
-				(weight == ((Product) o).weight) &&
-				(this.getDateCreated().equals(((Product)o).getDateCreated()));
+			return (name.equals(((Product) o).name))
+				  && (price == ((Product) o).price)
+				  && (weight == ((Product) o).weight)
+				  && (this.getDateCreated().equals(((Product) o).getDateCreated()));
 		} else {
 			return this == o;
 		}
 	}
 
 	//override method for the toString method
-	public String toString () {
+	public String toString() {
 		return "Name: " + name + "\nPrice: " + super.currency.format(price) + "\nWeight: " + this.weight + " FL OZ";
+	}
+
+	// return of 1 means this drink comes before the compared drink 
+	// return of 0 means the two are equal
+	// return of -1 means this drink comes after the compared drink
+	public int compareTo(Drink drink) {
+		if (this.name.charAt(0) > drink.name.charAt(0)) {
+			return 1;
+		} else if (this.name.charAt(0) < drink.name.charAt(0)) {
+			return -1;
+		} else if (this.price > drink.price) {
+			return 1;
+		} else if (this.price < drink.price) {
+			return -1;
+		} else {
+			return 0;
+		}
 	}
 }
