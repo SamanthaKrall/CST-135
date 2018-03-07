@@ -1,7 +1,7 @@
 /*
  * Summary: Source code for the testing the vending machine app
  * Class: CST-135
- * Date: February 24, 2018
+ * Date: March 4, 2018
  * Author: Phillip Radke
  *
  * This class is for testing the vending machine program for CST-135
